@@ -1,0 +1,15 @@
+		%%NAME%%  = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "%%INPUT_SOURCEOP_BACK%%",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "%%INPUT_SOURCEOP_FRONT%%",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+
+			ViewInfo = OperatorInfo { Pos = { %%POS_X%% , %%POS_Y%% } },
+		},

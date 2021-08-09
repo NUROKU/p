@@ -1,0 +1,10 @@
+		MediaOut1 = MediaOut {
+			Inputs = {
+				Index = Input { Value = "0", },
+				Input = Input {
+					SourceOp = "%%INPUT_SOURCEOP%%",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { %%POS_X%%, %%POS_Y%% } },
+		},

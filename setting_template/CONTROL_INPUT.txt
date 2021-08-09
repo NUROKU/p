@@ -1,0 +1,7 @@
+				%%NAME%% = {
+					LINKS_Name = "Merge1_blend",
+					LINKID_DataType = "Number",
+					INPID_InputControl = "CheckboxControl",
+					INP_Integer = false,
+					CBC_TriState = false,
+				},

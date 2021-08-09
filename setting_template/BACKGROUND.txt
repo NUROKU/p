@@ -1,0 +1,14 @@
+		%%NAME%% = Background {
+			CtrlWZoom = false,
+			Inputs = {
+				GlobalOut = Input { Value = 119, },
+				Width = Input { Value = %%MEDIA_WIDTH%%, },
+				Height = Input { Value = %%MEDIA_HEIGHT%%, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftAlpha = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { %%POS_X%%, %%POS_Y%% } },
+			UserControls = ordered() {
+				%%CONTROL_INPUT_CONTENT%%
+			}
+		},

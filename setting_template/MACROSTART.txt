@@ -1,0 +1,13 @@
+        %%NAME%% = MacroOperator {
+			Inputs = ordered() {
+%%MACROSTART_INPUT_CONTENT%%
+			},
+
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "MediaOut1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {

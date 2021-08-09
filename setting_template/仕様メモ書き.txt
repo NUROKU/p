@@ -1,0 +1,71 @@
+settingファイルを作るためのテンプレート
+テンプレートの内容の一部が置換用に変更されてるので、ちゃんと置換する。
+
+------------------------------
+
+順番
+*START
+MERGE
+PSD_MEDIAIN
+*MEDIAOUT
+*END
+
+*は絶対必要
+
+-------------------------------
+
+パラメータ(置換しなけりゃいけない部分)
+START : 
+なし
+
+END >
+%%ActiveTool%% : 起動するツール(例：MediaIn1)
+
+END_WITHMACRO (MACROSART_INPUTがある場合のEND)>
+%%ActiveTool%% : 起動するツール(例：MediaIn1)
+
+MEDIAOUT >
+%%INPUT_SOURCEOP%% : ノードの接続受け取り元(例：Merge2)
+%%POS_X%% : Fusionページ上のノードの位置(例: 0)
+%%POS_Y%% : Fusionページ上のノードの位置(例：0)
+
+MERGE >
+%%NAME%% : ノードの名前(例：Merge1)
+%%INPUT_SOURCEOP_FRONT%% : 前面に出るマージの接続受け取り元(例：MediaIn1)
+%%INPUT_SOURCEOP_BACK%% : 後面に出るマージの接続受け取り元(例：MediaIn2)
+%%POS_X%% : Fusionページ上のノードの位置(例: 0)
+%%POS_Y%% : Fusionページ上のノードの位置(例：0)
+
+PSD_MEDIAIN >
+%%NAME%% : ノードの名前(例：MediaIn1)
+%%MEDIA_PATH%% : ファイルのパス(例:C:\\DavinciWork\\20210723_PSDつくるよ\\miniPSD\\!素体.psd)
+%%MEDIA_HEIGHT%% :高さ (例:1550)
+%%MEDIA_WIDTH%% : 幅(例:1250)
+%%MEDIA_NAME%% :psdの名前 (例:!素体.psd)
+%%MEDIA_NUM_LAYERS%% : レイヤーの枚数(例:5)
+%%LAYER_NAME%% : 最初に表示されるレイヤーの名前(例:素体1)
+%%MediaID%% : MediaID(例：4b6b87a8-5776-4144-86aa-2942c16cdc30)
+%%POS_X%% : Fusionページ上のノードの位置(例: 0)
+%%POS_Y%% : Fusionページ上のノードの位置(例：0)
+
+BACKGROUND >
+%%NAME%% : ノードの名前(例：BackGround1)
+%%MEDIA_HEIGHT%% :高さ (例:1550)
+%%MEDIA_WIDTH%% : 幅(例:1250)
+%%POS_X%% : Fusionページ上のノードの位置(例: 0)
+%%POS_Y%% : Fusionページ上のノードの位置(例：0)
+%%CONTROL_INPUT_CONTENT%% : ユーザーコントロールのcontent
+
+MACROSTART >
+%%NAME%% : ノードの名前(例：psd_kiritan)
+%%MACROSTART_INPUT_CONTENT%% : MACROSTART_INPUTのCONTENT
+
+MACROSTART_INPUT >
+%%NAME%% : INPUTの名前(例: input1)
+%%SOURCEOP_NAME%% : 変更したいノードの名前(例: Merge1)
+%%SOURCE_NAME%% : 変更したいパラメータの名前(例: BlendClone)
+%%PARAM_NAME%%% : 編集時に表示されるパラメータの名前(例: 素体)
+%%ADDITIONAL%% : 追加でなにか必要な時に・・・(Default = 1,\n とか)
+
+------------------------------
+ノード名は英語じゃないとダメっぽい？

@@ -1,0 +1,31 @@
+		%%NAME%% = MediaIn {
+			CtrlWZoom = false,
+			CustomData = {
+				MediaProps = {
+					MEDIA_FORMAT_TYPE = "PSD",
+					MEDIA_HEIGHT = %%MEDIA_HEIGHT%%,
+					MEDIA_IS_SOURCE_RES = true,
+					MEDIA_MARK_IN = 0,
+					MEDIA_MARK_OUT = 0,
+					MEDIA_NAME = "%%MEDIA_NAME%%",
+					MEDIA_NUM_FRAMES = 1,
+					MEDIA_NUM_LAYERS = %%MEDIA_NUM_LAYERS%%,
+					MEDIA_PAR = 1,
+					MEDIA_PATH = "%%MEDIA_PATH%%",
+					MEDIA_SRC_FRAME_RATE = 30,
+					MEDIA_START_FRAME = 0,
+					MEDIA_WIDTH = %%MEDIA_WIDTH%%
+				},
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 149, },
+				MediaID = Input { Value = "%%MediaID%%", },
+				AudioTrack = Input { Value = FuID { "Timeline Audio" }, },
+				Layer = Input { Value = "%%LAYER_NAME%%", },
+				Loop = Input { Value = 1, },
+				ClipTimeEnd = Input { Value = 0, },
+				HoldLastFrame = Input { Value = 149, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { %%POS_X%%, %%POS_Y%% } },
+		},
