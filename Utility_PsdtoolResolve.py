@@ -1,10 +1,9 @@
 import re 
 import os
-import shutil
 
 class ResdtoolResolveUtility:
     @classmethod
-    def FormatName(self, text:str):
+    def FormatName(cls, text:str):
         #フォルダ名にできない名前だったりを良い感じに変換する
         
         #フォルダ作成時の禁止用語コンバート
@@ -16,7 +15,7 @@ class ResdtoolResolveUtility:
         return text
 
     @classmethod
-    def createDirectory(self, path:str):
+    def createDirectory(cls, path:str):
         #いいかんじにディレクトリを作成する
         
         # 既に存在してたら消す実装にはしてたんだけど、配布先で事故ったらこわいな・・・隠しとこ・・・
