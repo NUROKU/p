@@ -2,7 +2,7 @@ import os
 import sqlite3
 from enum import Enum
 from typing import List
-from psd_tools.api.psd_image import PSDImage
+from Modules.psd_tools.api.psd_image import PSDImage
 
 
 class TemplateFileEnum(Enum):
@@ -98,7 +98,7 @@ class ResolveSettingCreator:
             r"%%MEDIA_HEIGHT%%":psd.size[0],
             r"%%MEDIA_WIDTH%%":psd.size[1],
             r"%%MEDIA_NAME%%":os.path.basename(psd_filepath),
-            r"%%MEDIA_NUM_LAYERS%%":str(len(list(psd.descendants()))),
+            r"%%MEDIA_NUM_LAYERS%%":str(len(list(psd.descendants())) + 1),
             r"%%LAYER_NAME%%":str(layer_name),
             r"%%MediaID%%":mediaid,
             r"%%POS_X%%":str(pos_x),
@@ -221,5 +221,5 @@ class ResolveSettingCreator:
             raise e
         except Exception as e:
             print(e)
-            raise ValueError("なんかがバグってます。コンソールから起動するとエラーログが見えるかもしれません")
+            raise ValueError("なんかがバグってます。製作者に連絡頂けるとありがたいです")
     
