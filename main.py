@@ -33,7 +33,7 @@ def __main__():
             break
         elif event == 'MiniPSD生成':
             try:
-                #usecase.CreateMinipsd(values['psd_file'])
+                usecase.CreateMinipsd(values['psd_file'])
                 minipsd_folder = os.path.dirname(values['psd_file']) + "/"
                 window["minipsd_dir_text"].Update(minipsd_folder)
                 window["name"].Update(os.path.splitext(os.path.basename(values['psd_file']))[0])
