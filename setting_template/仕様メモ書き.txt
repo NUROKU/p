@@ -48,6 +48,19 @@ PSD_MEDIAIN >
 %%POS_X%% : Fusionページ上のノードの位置(例: 0)
 %%POS_Y%% : Fusionページ上のノードの位置(例：0)
 
+PSD_MEDIAIN_DESC >
+%%NAME%% : ノードの名前(例：MediaIn1)
+%%MEDIA_PATH%% : ファイルのパス(例:C:\\DavinciWork\\20210723_PSDつくるよ\\miniPSD\\!素体.psd)
+%%MEDIA_HEIGHT%% :高さ (例:1550)
+%%MEDIA_WIDTH%% : 幅(例:1250)
+%%MEDIA_NAME%% :psdの名前 (例:!素体.psd)
+%%MEDIA_NUM_LAYERS%% : レイヤーの枚数(例:5)
+%%MEDIA_DESCS%% : PSDレイヤーの情報
+%%LAYER_NAME%% : 最初に表示されるレイヤーの名前(例:素体1)
+%%MediaID%% : MediaID(例：4b6b87a8-5776-4144-86aa-2942c16cdc30)
+%%POS_X%% : Fusionページ上のノードの位置(例: 0)
+%%POS_Y%% : Fusionページ上のノードの位置(例：0)
+
 BACKGROUND >
 %%NAME%% : ノードの名前(例：BackGround1)
 %%MEDIA_HEIGHT%% :高さ (例:1550)
