@@ -1,7 +1,7 @@
 import os
 import traceback
 from Usecase_PsdtoolResolve import PsdtoolResolveUsecase
-import Modules.PySimpleGUI as sg
+import PySimpleGUI as sg
 
 def __main__():
     #正直DavinciResolveのスクリプトから実行する方が手間が少ないと思ってる(PSDをDavinciResolveに置く処理もしてくれそうだし)。なのでこれは暫定的なGUI

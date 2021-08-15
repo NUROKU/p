@@ -3,8 +3,7 @@ import os
 import sqlite3
 from enum import Enum
 from typing import List
-from Modules.psd_tools.api.psd_image import PSDImage
-from Utility_PsdtoolResolve import ResdtoolResolveUtility as util
+from psd_tools.api.psd_image import PSDImage
 
 class TemplateFileEnum(Enum):
     START = "START.txt"
