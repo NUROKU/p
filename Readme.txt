@@ -33,8 +33,7 @@ FusionTemplateを消したい時:
  C:\Users\ ｛ユーザ名｝ \AppData\Roaming\Blackmagic Design\DaVinci Resolve\Support\Fusion\Templates\Edit\Titles
 
 Davinci Resolveのエディットページで使ってみたけど、選択肢が反応しない：
- 仕様です、ちょっとだけ時間置いてください。（配備されてから基のPSDファイルを参照しに行く形なので）
-  →対応策見つけたかもしれないのでちょっと頑張っています
+ 仕様です、他のアイテム選択してから再度選択してみると反応します
 
 Davinci Resolveの別プロジェクトだと使えない：
  仕様です、公式が良い感じのアプデしたらいずれ使えるようになるかもしれない
