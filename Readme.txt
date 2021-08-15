@@ -30,7 +30,7 @@ PSDToolライクなFusionTemplateが出力されています。
 
 FusionTemplateを消したい時:
  ↓のパスに置いてあるやつを消せば大丈夫です
- C:\Users\ ｛ユーザ名｝ \AppData\Roaming\Blackmagic Design\DaVinci Resolve\Support\Fusion\Templates\Edit\Titles
+ C:\Users\ ｛ユーザ名｝ \AppData\Roaming\Blackmagic Design\DaVinci Resolve\Support\Fusion\Templates\Edit\Generators
 
 Davinci Resolveのエディットページで使ってみたけど、選択肢が反応しない：
  仕様です、他のアイテム選択してから再度選択してみると反応します
