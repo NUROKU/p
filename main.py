@@ -34,7 +34,7 @@ def __main__():
         elif event == 'MiniPSD生成':
             try:
                 usecase.CreateMinipsd(values['psd_file'])
-                minipsd_folder = os.path.dirname(values['psd_file']) + "/"
+                minipsd_folder = values['psd_file'][:-4] + "_MiniPSD"
                 window["minipsd_dir_text"].Update(minipsd_folder)
                 window["name"].Update(os.path.splitext(os.path.basename(values['psd_file']))[0])
                 sg.Popup( "MiniPSDを出力しました。")

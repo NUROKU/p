@@ -1,6 +1,4 @@
 from logging import exception
-import re
-import os
 import json
 from pytoshop.core import PsdFile
 from Utility_PsdtoolResolve import ResdtoolResolveUtility as util
