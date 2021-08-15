@@ -1,0 +1,10 @@
+					 	{
+							LAYER_COMPONENT_COUNT = 3,
+							LAYER_IMG_TYPE = "IMG_TYPE_RGBA",
+							LAYER_MERGE_TYPE = "NORMAL",
+							LAYER_NAME = "%%LAYER_NAME%%",
+							LAYER_XOFFSET = %%X_OFFSET%%,
+							LAYER_YOFFSET = %%Y_OFFSET%%,
+							MEDIA_HEIGHT = %%HEIGHT%%,
+							MEDIA_WIDTH = %%WIDTH%%
+						},

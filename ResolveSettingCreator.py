@@ -1,9 +1,9 @@
+import json
 import os
 import sqlite3
 from enum import Enum
 from typing import List
-from Modules.psd_tools.api.psd_image import PSDImage
-
+from psd_tools.api.psd_image import PSDImage
 
 class TemplateFileEnum(Enum):
     START = "START.txt"
@@ -13,6 +13,8 @@ class TemplateFileEnum(Enum):
     MACROSTART_INPUT = "MACROSTART_INPUT.txt"
     MEDIAOUT = "MEDIAOUT.txt"
     PSD_MEDIAIN = "PSD_MEDIAIN.txt"
+    PSD_MEDIAIN_DESC = "PSD_MEDIAIN_DESC.txt"
+    PSD_MEDIAIN_DESC_PARTS = "PSD_MEDIAIN_DESC_PARTS.txt"
     MERGE = "MERGE.txt"
     BACKGROUND = "BACKGROUND.txt"
     BACKGROUND_NOUSERCONTROL = "BACKGROUND_NOUSERCONTROL.txt"
@@ -34,7 +36,7 @@ class ResolveSettingCreator:
         self.DB_PATH = "C:/Users/" + os.environ['USERNAME'] + "/AppData/Roaming/Blackmagic Design/DaVinci Resolve/Support/Resolve Disk Database/Resolve Projects/Users/guest/Projects/" + project_name + "/Project.db"
         
         self.FILE_NAME = project_name + "_" + output_file_name
-        self.OUTPUT_FUSIONTEMPLATE_FILEPATH = output_dir + self.FILE_NAME + ".setting"
+        self.OUTPUT_FUSIONTEMPLATE_FILEPATH = output_dir + "/" + self.FILE_NAME + ".setting"
 
     def __getMediaId(self, media_name = ""):
         try:
@@ -53,7 +55,7 @@ class ResolveSettingCreator:
             
             return ""
         except Exception as e:
-            raise ValueError("Mediaを取得できませんでした。プロジェクト名やプロジェクト上に実際にMiniPsdが配備されているか確認してください")
+            raise ValueError("Mediaを取得できませんでした。プロジェクト上にMiniPsdが配備されているか確認してください")
 
     def __createContentFromTemplate(self, template_name:TemplateFileEnum, spec_dict:dict):
         #spec_dictは{"%%name%%":"hogehoge" , "%%POS_X%%":"120"}みたいなかんじで置換するとこdictみたいな
@@ -90,7 +92,30 @@ class ResolveSettingCreator:
 
     def __createPsdMediainContent(self,name:str,psd_filepath:str,mediaid:str,pos_x:int,pos_y:int):
         psd = PSDImage.open(psd_filepath)
-        #layer_name = list(psd.descendants())[0].name[:-1]
+
+        #ここでDISC作成
+        psd_images_dir = os.path.dirname(psd_filepath)[:-8] + "_Image"
+        layer_images_dir = ""
+
+        for pathname,dirname,medianame in os.walk(psd_images_dir):
+            if( os.path.basename(psd_filepath)[4:-4] in dirname):
+                layer_images_dir = pathname + "/" + os.path.basename(psd_filepath)[4:-4]
+                break;
+
+        desc_content = ""
+        if(layer_images_dir != ""):
+            for layer in psd:
+                json_open = open(layer_images_dir + "/" +  layer.name[:-1]  + '.json', 'r')
+                json_load = json.load(json_open)
+                spec_dict = {
+                    r"%%LAYER_NAME%%":layer.name[:-1],
+                    r"%%X_OFFSET%%":json_load["offset_x"],
+                    r"%%Y_OFFSET%%":json_load["offset_y"],
+                    r"%%HEIGHT%%":json_load["size_height"],
+                    r"%%WIDTH%%":json_load["size_width"]
+                }
+                desc_content += self.__createContentFromTemplate(TemplateFileEnum.PSD_MEDIAIN_DESC_PARTS,spec_dict)
+
         layer_name = ""
         spec_dict = {
             r"%%NAME%%":name,
@@ -99,12 +124,13 @@ class ResolveSettingCreator:
             r"%%MEDIA_WIDTH%%":psd.size[1],
             r"%%MEDIA_NAME%%":os.path.basename(psd_filepath),
             r"%%MEDIA_NUM_LAYERS%%":str(len(list(psd.descendants())) + 1),
+            r"%%MEDIA_DESCS%%":desc_content,
             r"%%LAYER_NAME%%":str(layer_name),
             r"%%MediaID%%":mediaid,
             r"%%POS_X%%":str(pos_x),
             r"%%POS_Y%%":str(pos_y)
         }  
-        content = self.__createContentFromTemplate(TemplateFileEnum.PSD_MEDIAIN,spec_dict)
+        content = self.__createContentFromTemplate(TemplateFileEnum.PSD_MEDIAIN_DESC,spec_dict)
         return content
 
     def __createMacroInput(self,psd_files:List):
