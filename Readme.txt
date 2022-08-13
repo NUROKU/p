@@ -1,4 +1,4 @@
 このリポジトリは爆発しました。
 
-続き→
+後続→
 https://github.com/NUROKU/DaVinciResolve_PSDFusionGenerator
